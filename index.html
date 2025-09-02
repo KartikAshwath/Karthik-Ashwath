@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karthik Ashwath Portfolio</title>
+    <!-- Load Tailwind CSS from CDN for all styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load the Inter font for a clean, modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for Day/Night Mode */
+        :root {
+            --bg-color: #F8FAFC;
+            --text-color: #4A5568;
+            --card-bg: #FFFFFF;
+            --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            --skill-tag-bg: #E2E8F0;
+            --skill-tag-color: #4A5568;
+            --header-bg-light: linear-gradient(to right, #3B82F6, #6366F1); /* blue-500 to indigo-500 */
+            --link-color: #3B82F6;
+        }
+        body.dark-mode {
+            --bg-color: #1A202C;
+            --text-color: #A0AEC0;
+            --card-bg: #2D3748;
+            --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            --skill-tag-bg: #4A5568;
+            --skill-tag-color: #E2E8F0;
+            --header-bg-dark: linear-gradient(to right, #2D3748, #4A5568); /* a more subtle gradient for dark mode */
+            --link-color: #667EEA;
+        }
+
+        /* General styles using CSS variables */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .card {
+            background-color: var(--card-bg);
+            box-shadow: var(--card-shadow);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .header {
+            background: var(--header-bg-light);
+        }
+        body.dark-mode .header {
+            background: var(--header-bg-dark);
+        }
+        .skill-tag {
+            background-color: var(--skill-tag-bg);
+            color: var(--skill-tag-color);
+        }
+    </style>
+</head>
+<body class="dark-mode-hidden">
+
+    <!-- Header Section with Hero Content -->
+    <header class="header text-white p-8 rounded-b-xl shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">Karthik A.</h1>
+            <div class="flex items-center space-x-4">
+                <a href="#about" class="hover:underline transition duration-300">About</a>
+                <a href="#skills" class="hover:underline transition duration-300">Skills</a>
+                <a href="#projects" class="hover:underline transition duration-300">Projects</a>
+                <a href="#certifications" class="hover:underline transition duration-300">Certificates</a>
+                <a href="#contact" class="hover:underline transition duration-300">Contact</a>
+                <!-- Light/Dark Mode Toggle Button -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-white hover:bg-opacity-20 transition duration-300">
+                    <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-1.006 0-1.97-1.12-2.5-2.25s-.5-2.25-1.5-2.25-2.5 1.12-2.5 2.25-1.5 2.25-2.5 2.25-1.5 2.25-2.5-2.25-2.5-2.25-2.5-2.25-2.5-2.25A9.718 9.718 0 013.248 15.002a9.75 9.75 0 1018.504 0z" />
+                    </svg>
+                    <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white hidden">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5m-7.5 7.5h1.5m-.75 6.75l1.5-1.5M12 21v1.5m7.5-7.5h1.5m-.75-6.75l1.5 1.5M12 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="container mx-auto mt-8 text-center">
+            <!-- Profile Picture -->
+            <img src="https://raw.githubusercontent.com/KartikAshwath/Portfolio/main/WhatsApp%20Image%202025-08-27%20at%2012.39.42%20PM.jpeg" alt="Karthik Ashwath's profile picture" class="rounded-full w-56 h-56 mx-auto mb-6 border-4 border-white object-cover">
+            
+            <h2 class="text-2xl font-bold leading-tight">
+                Data Analyst | Data Science Enthusiast
+            </h2>
+            <p class="mt-4 text-sm font-light opacity-90 whitespace-nowrap overflow-hidden text-ellipsis">
+                Transforming complex data into clear, actionable insights.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="container mx-auto p-4 sm:p-8 mt-8 space-y-12">
+        <!-- About Section -->
+        <section id="about" class="space-y-6">
+            <h3 class="text-3xl font-bold text-center border-b-2 pb-2">About Me</h3>
+            <div class="max-w-3xl mx-auto text-lg leading-relaxed">
+                <p style="text-align: justify;">
+                    Data-driven Computer Science Engineering graduate with hands-on experience in data analysis, machine learning, and business intelligence. Proficient in Python (Pandas, NumPy, Matplotlib and Seaborn), SQL, Big Query, Power BI, Google Colab and Jupyter Notebook for building analytical pipelines and visual dashboards. Experienced in end-to-end data projects-from data wrangling to supervised and unsupervised ML model building. Skilled at translating complex data into actionable insights to support strategic business decisions.
+                </p>
+            </div>
+        </section>
+
+        <!-- Technical Qualifications Section -->
+        <section id="skills" class="space-y-6">
+            <h3 class="text-3xl font-bold text-center border-b-2 pb-2">Technical Qualifications</h3>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Languages -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-xl font-semibold mb-2">Languages</h4>
+                    <ul class="list-disc list-inside space-y-1 text-sm opacity-90">
+                        <li>Python (Pandas, NumPy, Matplotlib, Seaborn, SciPy)</li>
+                        <li>SQL (Advanced Queries, Joins, CTES, Window Functions)</li>
+                    </ul>
+                </div>
+                <!-- Data Tools -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-xl font-semibold mb-2">Data Tools</h4>
+                    <ul class="list-disc list-inside space-y-1 text-sm opacity-90">
+                        <li>MySQL</li>
+                        <li>Power BI</li>
+                        <li>PySpark</li>
+                        <li>Jupyter Notebook</li>
+                        <li>MS Excel</li>
+                        <li>Google Sheets</li>
+                        <li>Looker Studios</li>
+                    </ul>
+                </div>
+                <!-- ML Techniques -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-xl font-semibold mb-2">ML Techniques</h4>
+                    <ul class="list-disc list-inside space-y-1 text-sm opacity-90">
+                        <li>Regression (Linear, Polynomial)</li>
+                        <li>Classification (Logistic, KNN, SVM, Naive Bayes, Decision Tree)</li>
+                        <li>Clustering (K-Means, DBSCAN, PCA)</li>
+                        <li>Model Evaluation</li>
+                        <li>Sentiment Analysis</li>
+                        <li>Topic Modelling</li>
+                    </ul>
+                </div>
+                <!-- ML Frameworks -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-xl font-semibold mb-2">ML Frameworks</h4>
+                    <ul class="list-disc list-inside space-y-1 text-sm opacity-90">
+                        <li>Sci-kit Learn</li>
+                        <li>Tensorflow</li>
+                        <li>PyTorch</li>
+                        <li>MAXNet</li>
+                    </ul>
+                </div>
+                <!-- Data Lifecycle Skills -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-xl font-semibold mb-2">Data Lifecycle Skills</h4>
+                    <ul class="list-disc list-inside space-y-1 text-sm opacity-90">
+                        <li>Data Cleaning</li>
+                        <li>Feature Engineering</li>
+                        <li>EDA</li>
+                        <li>Dashboard Development</li>
+                        <li>Data Storytelling</li>
+                    </ul>
+                </div>
+                <!-- Cloud -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-xl font-semibold mb-2">Cloud</h4>
+                    <ul class="list-disc list-inside space-y-1 text-sm opacity-90">
+                        <li>Google Cloud</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="space-y-6">
+            <h3 class="text-3xl font-bold text-center border-b-2 pb-2">Projects</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: Retail Sales Insights Dashboard -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-2">Retail Sales Insights Dashboard</h4>
+                    <p class="text-sm opacity-80 mb-4" style="text-align: justify;">Built an end-to-end sales analytics pipeline (data cleaning, EDA, dashboard). Created interactive Power BI dashboards to track revenue, top products, and sales by region.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-tag text-xs font-semibold px-2 py-1 rounded-full">Python</span>
+                        <span class="skill-tag text-xs font-semibold px-2 py-1 rounded-full">Excel</span>
+                        <span class="skill-tag text-xs font-semibold px-2 py-1 rounded-full">Power BI</span>
+                    </div>
+                    <a href="https://github.com/KartikAshwath" class="text-blue-600 hover:text-blue-400 font-semibold transition duration-300">GitHub Repo ↗</a>
+                </div>
+                <!-- Project 2: Job Market Analytics -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-2">Job Market Analytics</h4>
+                    <p class="text-sm opacity-80 mb-4" style="text-align: justify;">Scraped and analyzed job postings for Data Analyst roles. Extracted insights: top cities, skills in demand, salary ranges, and monthly trends. Built an interactive Power BI dashboard with 4 pages (Overview, Skills, Salary, Locations).</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-tag text-xs font-semibold px-2 py-1 rounded-full">Python</span>
+                        <span class="skill-tag text-xs font-semibold px-2 py-1 rounded-full">MySQL</span>
+                        <span class="skill-tag text-xs font-semibold px-2 py-1 rounded-full">Power BI</span>
+                    </div>
+                    <a href="https://github.com/KartikAshwath" class="text-blue-600 hover:text-blue-400 font-semibold transition duration-300">GitHub Repo ↗</a>
+                </div>
+                <!-- Project 3: British Airways Review & Booking Analysis -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-2">British Airways Review & Booking Analysis</h4>
+                    <p class="text-sm opacity-80 mb-4" style="text-align: justify;">Conducted sentiment analysis & topic modeling on customer reviews. Identified booking behavior patterns and presented insights with PowerPoint storytelling.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-tag text-xs font-semibold px-2 py-1 rounded-full">Python</span>
+                        <span class="skill-tag text-xs font-semibold px-2 py-1 rounded-full">NLP</span>
+                        <span class="skill-tag text-xs font-semibold px-2 py-1 rounded-full">ML</span>
+                        <span class="skill-tag text-xs font-semibold px-2 py-1 rounded-full">Visualization</span>
+                    </div>
+                    <a href="https://github.com/KartikAshwath" class="text-blue-600 hover:text-blue-400 font-semibold transition duration-300">GitHub Repo ↗</a>
+                </div>
+                <!-- Project 4: Object Detection & Distance Measurement for Visually Impaired -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-2">Object Detection & Distance Measurement for Visually Impaired</h4>
+                    <p class="text-sm opacity-80 mb-4" style="text-align: justify;">Designed an assistive vision system with 3D audio feedback. Enabled intuitive navigation by translating distance and object detection into sound intensity.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-tag text-xs font-semibold px-2 py-1 rounded-full">Computer Vision</span>
+                        <span class="skill-tag text-xs font-semibold px-2 py-1 rounded-full">ML</span>
+                    </div>
+                    <a href="https://github.com/KartikAshwath" class="text-blue-600 hover:text-blue-400 font-semibold transition duration-300">GitHub Repo ↗</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="space-y-6">
+            <h3 class="text-3xl font-bold text-center border-b-2 pb-2">Certifications</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Certification 1: Crash Course on Python -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-2">Crash Course on Python</h4>
+                    <p class="text-sm opacity-80 mb-4">Issued by Google (Coursera)</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-400 font-semibold transition duration-300" target="_blank">View Credential ↗</a>
+                </div>
+                <!-- Certification 2: Introduction to Machine Learning -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-2">Introduction to Machine Learning</h4>
+                    <p class="text-sm opacity-80 mb-4">Issued by Infosys Springboard</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-400 font-semibold transition duration-300" target="_blank">View Credential ↗</a>
+                </div>
+                <!-- Certification 3: Introduction to Data Analytics in Google Cloud -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-2">Introduction to Data Analytics in Google Cloud <span class="text-xs text-yellow-500 font-normal">(In Progress)</span></h4>
+                    <p class="text-sm opacity-80 mb-4">Issued by Google</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-400 font-semibold transition duration-300" target="_blank">View Credential ↗</a>
+                </div>
+                <!-- Certification 4: BigQuery for Data Analysts -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-2">BigQuery for Data Analysts <span class="text-xs text-yellow-500 font-normal">(In Progress)</span></h4>
+                    <p class="text-sm opacity-80 mb-4">Issued by Google Cloud</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-400 font-semibold transition duration-300" target="_blank">View Credential ↗</a>
+                </div>
+                <!-- Certification 5: Prompt Engineering with OpenAI -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-2">Prompt Engineering with OpenAI <span class="text-xs text-yellow-500 font-normal">(In Progress)</span></h4>
+                    <p class="text-sm opacity-80 mb-4">Issued by Columbia University</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-400 font-semibold transition duration-300" target="_blank">View Credential ↗</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="space-y-6">
+            <h3 class="text-3xl font-bold text-center border-b-2 pb-2">Get in Touch</h3>
+            <div class="text-center text-lg">
+                <p>Feel free to connect with me on social media or send me an email.</p>
+                <div class="mt-4 space-x-6 flex justify-center">
+                    <a href="https://www.linkedin.com/in/karthik-ashwath-4a7b97205/" class="text-blue-600 hover:text-blue-400 transition duration-300 font-semibold" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/KartikAshwath" class="text-blue-600 hover:text-blue-400 transition duration-300 font-semibold" target="_blank">GitHub</a>
+                    <a href="mailto:karthik.a@example.com" class="text-blue-600 hover:text-blue-400 transition duration-300 font-semibold">Email</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-sm mt-10">
+        <p>&copy; 2025 Karthik A. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
+
+            // Function to set the theme
+            function setTheme(theme) {
+                if (theme === 'dark') {
+                    body.classList.add('dark-mode');
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                } else {
+                    body.classList.remove('dark-mode');
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                }
+                localStorage.setItem('theme', theme);
+            }
+
+            // Check for saved theme preference or default to light
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            setTheme(savedTheme);
+
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+                setTheme(currentTheme);
+            });
+        });
+    </script>
+</body>
+</html>
